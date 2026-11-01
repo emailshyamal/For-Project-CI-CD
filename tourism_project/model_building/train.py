@@ -14,11 +14,14 @@ import mlflow
 mlflow.set_tracking_uri("http://localhost:5000")
 mlflow.set_experiment("MLOps_experiment")
 
+import os
+base_dir = os.getcwd() 
+
 # Xtrain/Xtest/ytrain/ytest are downloaded from the previous job's artifact
-Xtrain = pd.read_csv("Xtrain.csv")
-Xtest  = pd.read_csv("Xtest.csv")
-ytrain = pd.read_csv("ytrain.csv").squeeze()
-ytest  = pd.read_csv("ytest.csv").squeeze()
+Xtrain = pd.read_csv(os.path.join(base_dir, "Xtrain.csv"))
+Xtest = pd.read_csv(os.path.join(base_dir, "Xtest.csv"))
+ytrain = pd.read_csv(os.path.join(base_dir, "ytrain.csv")).squeeze()
+ytest = pd.read_csv(os.path.join(base_dir, "ytest.csv")).squeeze()
 
 # Define actual numeric and categorical features from your DataFrame schema
 numeric_features = [
