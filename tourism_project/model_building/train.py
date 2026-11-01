@@ -12,7 +12,7 @@ import joblib
 import mlflow
 
 mlflow.set_tracking_uri("http://localhost:5000")
-mlflow.set_experiment("mlops-training-experiment")
+mlflow.set_experiment("MLOps_experiment")
 
 # Xtrain/Xtest/ytrain/ytest are downloaded from the previous job's artifact
 Xtrain = pd.read_csv("Xtrain.csv")
